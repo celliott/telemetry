@@ -24,7 +24,8 @@ $ make run
 
 #### Stop containers
 ```bash
-$ make stop
+$ make down
+```
 
 #### Reset containers
 ```bash
