@@ -1,0 +1,41 @@
+# Sample config for Prometheus.
+
+global:
+  scrape_interval:     30s
+  scrape_timeout:      30s
+  evaluation_interval: 30s
+
+  # Attach these labels to any time series or alerts when communicating with
+  # external systems (federation, remote storage, Alertmanager).
+  external_labels:
+      monitor: 'prometheus'
+
+# Load and evaluate rules in this file every 'evaluation_interval' seconds.
+rule_files:
+  # - "first.rules"
+  # - "second.rules"
+
+scrape_configs:
+
+  - job_name: monitoring
+    static_configs:
+
+      # prometheus
+      - targets:
+        - '172.17.0.1:9100'
+        labels:
+          alias: 'telemetry-node'
+          
+      - targets:
+        - '172.17.0.1:8080'
+        labels:
+          alias: 'telemetry-node'
+          
+  - job_name: weather
+    metrics_path: /
+    static_configs:
+
+      - targets:
+        - '172.17.0.1:9265'
+        labels:
+          alias: 'telemetry-node'
