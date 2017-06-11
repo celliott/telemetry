@@ -29,13 +29,13 @@ scrape_configs:
       - targets:
         - '172.17.0.1:8080'
         labels:
-          alias: 'telemetry-node'
+          alias: 'telemetry-containers'
           
-  - job_name: weather
+  - job_name: weather_exporter
     metrics_path: /
     static_configs:
 
       - targets:
         - '172.17.0.1:9265'
         labels:
-          alias: 'telemetry-node'
+          alias: 'weather-exporter'
