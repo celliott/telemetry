@@ -46,6 +46,7 @@ services:
       - ${ENDPOINT_PORT}:${ENDPOINT_PORT}
     environment:
       - DARK_SKY_API_KEY=${DARK_SKY_API_KEY}
+      - DARK_SKY_API_INTERVAL=${DARK_SKY_API_INTERVAL}
   cadvisor:
     image: google/cadvisor
     container_name: cadvisor
