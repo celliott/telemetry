@@ -41,7 +41,7 @@ services:
       - "./config/prometheus.yml:/etc/prometheus/prometheus.yml"
       - "/var/lib/prometheus/metrics:/var/lib/prometheus/metrics"
   weather_exporter:
-    image: celliott/weather_exporter:0.0.1
+    image: celliott/weather_exporter:latest
     container_name: weather_exporter
     ports:
       - ${ENDPOINT_PORT}:${ENDPOINT_PORT}
