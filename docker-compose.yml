@@ -10,7 +10,6 @@ services:
       - "/var/lib/grafana:/var/lib/grafana"
     environment: 
       - GF_SECURITY_ADMIN_PASSWORD=${GF_SECURITY_ADMIN_PASSWORD}
-      - DARK_SKY_API_INTERVAL=${DARK_SKY_API_INTERVAL}
   alertmanager:
     image: prom/alertmanager:master
     container_name: alertmanager
@@ -47,7 +46,7 @@ services:
       - ${ENDPOINT_PORT}:${ENDPOINT_PORT}
     environment:
       - DARK_SKY_API_KEY=${DARK_SKY_API_KEY}
-      - DARK_SKY_API_INTERVAL=${DARK_SKY_API_INTERVAL}
+      - SCRAPE_INTERVAL=${SCRAPE_INTERVAL}
   cadvisor:
     image: google/cadvisor
     container_name: cadvisor
