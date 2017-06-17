@@ -47,6 +47,7 @@ services:
     environment:
       - DARK_SKY_API_KEY=${DARK_SKY_API_KEY}
       - SCRAPE_INTERVAL=${SCRAPE_INTERVAL}
+      - CITIES=${CITIES}
   cadvisor:
     image: google/cadvisor
     container_name: cadvisor
