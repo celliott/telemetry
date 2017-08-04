@@ -72,3 +72,8 @@ services:
     command: 
       - -collector.procfs=/host/proc
       - -collector.sysfs=/host/sys
+  collectd_exporter:
+    image: prom/collectd-exporter:master
+    container_name: collectd_exporter
+    ports:
+      - 9103:9103

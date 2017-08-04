@@ -22,12 +22,12 @@ scrape_configs:
 
       # prometheus
       - targets:
-        - '172.17.0.1:9100'
+        - 'node_exporter:9100'
         labels:
           alias: 'telemetry-node'
           
       - targets:
-        - '172.17.0.1:8080'
+        - 'cadvisor:8080'
         labels:
           alias: 'telemetry-containers'
           
@@ -36,6 +36,13 @@ scrape_configs:
     static_configs:
 
       - targets:
-        - '172.17.0.1:9265'
+        - 'weather_exporter:9265'
         labels:
           alias: 'weather-exporter'
+
+  - job_name: collectd_exporter
+    static_configs:
+      - targets:
+        - 'collectd_exporter:9103'
+        labels:
+          alias: 'collectd-exporter'
